@@ -1,0 +1,183 @@
+/* GimhaeGaya Font - @font-face 방식 */
+/* https://wess.tistory.com/474 - 링크 주소 */
+@font-face {
+     font-family: 'GimhaeGaya';
+     font-weight: 400;
+     font-style: normal;
+     src: url('https://cdn.jsdelivr.net/gh/webfontworld/gimhae/GimhaeGayaR.eot');
+     src: url('https://cdn.jsdelivr.net/gh/webfontworld/gimhae/GimhaeGayaR.eot?#iefix') format('embedded-opentype'),
+          url('https://cdn.jsdelivr.net/gh/webfontworld/gimhae/GimhaeGayaR.woff2') format('woff2'),
+          url('https://cdn.jsdelivr.net/gh/webfontworld/gimhae/GimhaeGayaR.woff') format('woff'),
+          url('https://cdn.jsdelivr.net/gh/webfontworld/gimhae/GimhaeGayaR.ttf') format("truetype");
+     font-display: swap;
+}
+
+@font-face {
+     font-family: 'GimhaeGaya';
+     font-weight: 700;
+     font-style: normal;
+     src: url('https://cdn.jsdelivr.net/gh/webfontworld/gimhae/GimhaeGayaB.eot');
+     src: url('https://cdn.jsdelivr.net/gh/webfontworld/gimhae/GimhaeGayaB.eot?#iefix') format('embedded-opentype'),
+          url('https://cdn.jsdelivr.net/gh/webfontworld/gimhae/GimhaeGayaB.woff2') format('woff2'),
+          url('https://cdn.jsdelivr.net/gh/webfontworld/gimhae/GimhaeGayaB.woff') format('woff'),
+          url('https://cdn.jsdelivr.net/gh/webfontworld/gimhae/GimhaeGayaB.ttf') format("truetype");
+     font-display: swap;
+}
+
+/* 프리텐다드 Font - @font-face 방식 */
+/* https://noonnu.cc/font_page/694 - 링크 주소 */
+@font-face {
+     font-family: 'Pretendard-Regular';
+     src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+     font-weight: 400;
+     font-style: normal;
+ }
+
+/* reset.css */
+body{
+     margin: 0; padding: 0;
+     font-family: 'GimhaeGaya';
+}
+
+/* a{text-decoration: none;} */
+
+/* #wrapper{width: 100%;} */
+
+/* header(navigation) */
+#header{
+     height: 64px;
+     padding: 0px 120px;
+
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+
+.header-logo{
+     display: flex;
+     align-items: center;
+}
+
+.header-logo:hover{cursor: pointer;}
+
+.header-logo-icon{
+     background-image: url(./asset/header_logo.png);
+     background-repeat: no-repeat;
+     background-position: 50% 50%;
+     background-size: 100% 100%;
+
+     width: 24px;
+     height: 24px;
+}
+
+.header-logo-text{
+     font-size: 20px;
+     margin-left: 10px;
+}
+
+.header-search-icon{
+     background-image: url(./asset/search.png);
+     background-repeat: no-repeat;
+     background-position: 50% 50%;
+     background-size: 100% 100%;
+     
+     width: 24px;
+     height: 24px;
+}
+
+.header-search-icon:hover{cursor: pointer;}
+
+/* main */
+#main{
+     background-image: url(./asset/background.png);
+     background-repeat: no-repeat;
+     background-position: 50% 50%;
+     background-size: 100% 100%;
+     
+     height: calc(100vh - 64px);
+
+     padding: 100px 120px 150px;
+
+     display: flex;
+}
+
+.main-left-container{
+     /* flex : grow shrink basis */
+     /* flex : 7 7 auto */
+     flex: 7;
+
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+.main-left-icon{
+     background-image: url(./asset/main_logo.png);
+     background-repeat: no-repeat;
+     background-position: 50% 50%;
+     background-size: 100% 100%;
+
+     width: 50px;
+     height: 50px;
+}
+
+.main-left-text-box{margin-top: 20px;}
+
+.main-left-text{
+     color: #ffffff;
+
+     font-size: 40px;
+     font-weight: 400;
+     line-height: 140%;
+     letter-spacing: -1.2px;
+     text-align: center;
+}
+
+.main-left-text:last-child{font-weight: 700;}
+
+.main-right-container{flex: 5;}
+
+.main-right-card{
+     background-color: #ffffff;
+
+     border-radius: 10px;
+
+     height: calc(100% - 80px);
+
+     padding: 50px 50px 30px;
+
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+}
+
+.sign-in-text{
+     font-family: 'Pretendard-Regular';
+     font-size: 24px;
+     font-weight: 500;
+     line-height: 140%;
+}
+
+.input-box{
+     margin-top: 40px;
+
+     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.input-label{
+     font-family: 'Pretendard-Regular';
+     font-size: 14px;
+     font-weight: 400;
+     line-height: 140%;
+     opacity: 0.7;
+}
+
+.input-container{
+     margin: 13px 0px;
+
+     display: flex;
+}
+
+input{flex: 1;}
