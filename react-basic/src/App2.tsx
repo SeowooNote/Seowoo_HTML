@@ -49,7 +49,7 @@ function App2() {
     return () => {
       // alert('화면 종료...');
     }
-  }, [])
+  }, []);
 
   return (
     <>
@@ -63,7 +63,7 @@ function App2() {
       {/* ? 때문에 arg2 에 기입하지 않아도 정상 작동 */}
       {/* <TestComponent arg1 = {'문자열'} arg2 = {1} /> */}
       <button onClick={increaseCount} style={{ cursor: 'pointer' }}>+</button>
-      <Header count={count}/>
+      <Header count={count} />
       <Main />
       <Footer />
     </>

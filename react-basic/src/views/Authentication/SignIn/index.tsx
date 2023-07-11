@@ -1,6 +1,10 @@
 import React, {useState, Dispatch, SetStateAction} from 'react';
 import './style.css';
 
+// useState 로 상태를 선언하는 경우 : 해당 컴포넌트에서만 상태를 사용할 때
+// useStore(zustand 상태관리) 로 상태를 선언하는 경우 : 여러 컴포넌트에서 상태를 사용할 때
+import { SignInStore } from '../../../stores';    // zustand 상태관리
+
 function Header() {
      return(
           <div id="header">
@@ -37,27 +41,31 @@ function MainLeftContainer() {
 }
 
 function MainRightContainer() {
-     const [email, setEmail] = useState<string>('');
-     const [password, setPassword] = useState<string>('');
+     // const [email, setEmail] = useState<string>('');
+     // const [password, setPassword] = useState<string>('');
+
+     // 
 
      return(
           <div className="main-right-container">
                <div className="main-right-card">
-                    <MainRightCardTop setEmail={setEmail} setPassword={setPassword} />
-                    <MainRightCardBottom email={email} password={password} />
+                    <MainRightCardTop /* setEmail={setEmail} setPassword={setPassword} */ />
+                    <MainRightCardBottom /* email={email} password={password} */ />
                </div>
           </div>
      );
 }
 
-interface MainRightCardTopProps{
-     // setEmail: React.Dispatch<React.SetStateAction<string>>;
-     setEmail: Dispatch<SetStateAction<string>>;  // {Dispatch}, {SetStateAction} 을 import
-     // setPassword: React.Dispatch<React.SetStateAction<string>>;
-     setPassword: React.Dispatch<React.SetStateAction<string>>;
-}
+// interface MainRightCardTopProps{
+//      // setEmail: React.Dispatch<React.SetStateAction<string>>;
+//      setEmail: Dispatch<SetStateAction<string>>;  // {Dispatch}, {SetStateAction} 을 import
+//      // setPassword: React.Dispatch<React.SetStateAction<string>>;
+//      setPassword: React.Dispatch<React.SetStateAction<string>>;
+// }
 
-function MainRightCardTop({ setEmail, setPassword }: MainRightCardTopProps) {
+function MainRightCardTop(/* { setEmail, setPassword }: MainRightCardTopProps */) {
+     const { setEmail, setPassword } = SignInStore();
+
      return(
           <div className="main-right-card-top">
                <div className="sign-in-text">로그인</div>
@@ -73,11 +81,12 @@ interface InputBoxProps{
      label: string;
      show: boolean;
      type: string;
-     set: Dispatch<SetStateAction<string>>;
+     // set: Dispatch<SetStateAction<string>>;
+     set: (arg: string) => void;
 }
 
 function InputBox({label, show, type, set} : InputBoxProps) {
-     const placeholder = `${label}를 입력해 주세요`
+     const placeholder = `${label}를 입력해 주세요`;
 
      return(
           <div className="input-box">
@@ -95,7 +104,9 @@ interface MainRightCardBottomProps{
      password: string;
 }
 
-function MainRightCardBottom({email, password}: MainRightCardBottomProps) {
+function MainRightCardBottom(/* {email, password}: MainRightCardBottomProps */) {
+     const { email, password } = SignInStore();
+
      const onSignInButtonHandler = () => {
           alert(`email : ${email}, password : ${password}`);
      }
@@ -103,7 +114,7 @@ function MainRightCardBottom({email, password}: MainRightCardBottomProps) {
      return(
           <div className="main-right-card-bottom">
                <button className="sign-in-button" onClick={onSignInButtonHandler}>로그인</button>
-               <div className="sign-up-description">신규 사용자이신가요? <a href="#" className="emphasis">회원가입</a></div>
+               <div className="sign-up-description">신규 사용자이신가요? <a href="/sign-up" className="emphasis">회원가입</a></div>
           </div>
      );
 }
